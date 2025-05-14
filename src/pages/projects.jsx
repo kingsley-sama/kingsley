@@ -28,7 +28,19 @@ const Projects = () => {
             link:"",
             image: "",
             desc:""
-        }
+        },
+        {
+          title:"",
+          link:"",
+          image: "",
+          desc:""
+      },
+      {
+        title:"",
+        link:"",
+        image: "",
+        desc:""
+    },
     ]
     const subheading = "A collection of projects and experiences"
     return (
@@ -81,7 +93,7 @@ const ProjectCard =({header, link, image, text}) =>{
   
     return (
         <div
-          className="grid grid-cols-2 grid-rows-2 bg-neutral-50 h-[280px] w-full relative overflow-hidden"
+          className="grid grid-cols-2 grid-rows-2 bg-neutral-50 h-[300px] w-full relative overflow-hidden max-w-[350px]"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >

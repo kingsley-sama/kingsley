@@ -6,6 +6,8 @@ import { RevealBento } from './pages/aboutme'
 import { HoverImageLinks } from './pages/menu'
 import Projects from './pages/projects'
 import NavBar from './pages/navbar'
+import ContactForm from './pages/contact'
+import { TechStacks } from './pages/tech_stacks'
 
 function App() {
 
@@ -15,6 +17,8 @@ function App() {
       <RevealBento />
       <HoverImageLinks />
       <Projects />
+      <ContactForm />
+      <TechStacks />
       <SmoothScrollHero />
       <DragCards />
 
