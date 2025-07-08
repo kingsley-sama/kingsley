@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { twMerge } from "tailwind-merge";
+import Heading from "../components/header";
 
 export const DragCards = () => {
   return (
@@ -17,6 +18,8 @@ const Cards = () => {
   const containerRef = useRef(null);
 
   return (
+    <>
+    <Heading title="Certifications" className="text-neutral-50 mb-10" />
     <div className="absolute inset-0 z-10" ref={containerRef}>
       <Card
         containerRef={containerRef}
@@ -73,6 +76,7 @@ const Cards = () => {
         className="w-24 md:w-48"
       />
     </div>
+    </>
   );
 };
 

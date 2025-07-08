@@ -8,25 +8,25 @@ const Projects = () => {
         {
             title:"",
             link:"",
-            image: "",
+            image: "/projects/apple_website.webp",
             desc:""
         },
         {
             title:"",
             link:"",
-            image: "",
+            image: "/projects/music.webp",
             desc:""
         },
         {
             title:"",
             link:"",
-            image: "",
+            image: "/projects/hotelsandbooking.webp",
             desc:""
         },
         {
             title:"",
             link:"",
-            image: "",
+            image: "/projects/youplusai.png",
             desc:""
         }
     ]
@@ -81,7 +81,7 @@ const ProjectCard =({header, link, image, text}) =>{
   
     return (
         <div
-          className="grid grid-cols-2 grid-rows-2 bg-neutral-50 h-[280px] w-full relative overflow-hidden"
+          className="grid grid-cols-2 grid-rows-2 bg-neutral-50 h-[300px] w-full relative overflow-hidden max-w-[350px]"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
@@ -99,7 +99,7 @@ const ProjectCard =({header, link, image, text}) =>{
               bottom: isHovered ? "0" : "0",
             }}
           >
-          <img src={"https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format"} alt={header} layout="fill" objectFit="cover" className='h-[100%]'/>
+          <img src={image} alt={header} layout="fill" objectFit="cover" className='h-[100%]'/>
           </div>
           <div className="col-start-2 text-black row-start-2 p-2 flex items-center justify-center bg-white">
             <a href={link} className="text-black hover:underline flex center">
