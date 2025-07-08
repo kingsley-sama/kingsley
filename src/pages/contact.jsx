@@ -1,6 +1,6 @@
 "use client"
 import { useState } from "react"
-
+import Heading from "../components/header.jsx"
 const contactMethods = [
   { id: "email", label: "Email", icon: "✉️", placeholder: "your.email@example.com" },
   { id: "phone", label: "Phone", icon: "📱", placeholder: "+1 (123) 456-7890" },
@@ -64,10 +64,10 @@ export default function ContactForm() {
   }
 
   return (
-    <div className="w-full px-6 lg:container py-12 ">
+    <div className="bg-neutral-950 p-4 mb-8 mt-8 md:p-8">
       <div className="mx-auto">
         <div className="text-center mb-10">
-          <h2 className=" text-neutral-500 transition-colors duration-500 hover:text-neutral-50 md:text-6xl text-4xl font-bold mb-4">Contact Us</h2>
+          <Heading title="Contact Us" />
           <p className=" text-neutral-500 transition-colors duration-500 hover:text-neutral-50 md:text-2xl text-lg">
             Please fill out the feedback form. I typically respond in less than an hour
           </p>

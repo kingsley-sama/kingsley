@@ -2,11 +2,10 @@
 
 import { useRef, useEffect, useState } from "react"
 import { motion, useInView, useAnimation } from "framer-motion"
+import Heading from "../components/header.jsx"
 
 const TechStacks = () => {
   const containerRef = useRef(null)
-
-  // Create refs for each tech stack list
   const frontendRef = useRef(null)
   const backendRef = useRef(null)
   const deploymentRef = useRef(null)
@@ -83,7 +82,7 @@ const TechStacks = () => {
       y: 0,
       transition: {
         duration: 1,
-        ease: [0.25, 0.1, 0.25, 1], // power4.out equivalent
+        ease: [0.25, 0.1, 0.25, 1],
       },
     },
   }
@@ -95,7 +94,7 @@ const TechStacks = () => {
       y: 0,
       transition: {
         duration: 1,
-        ease: [0.25, 0.1, 0.25, 1], // power4.out equivalent
+        ease: [0.25, 0.1, 0.25, 1],
       },
     },
   }
@@ -107,15 +106,15 @@ const TechStacks = () => {
       y: 0,
       transition: {
         duration: 1,
-        ease: [0.25, 0.1, 0.25, 1], // power4.out equivalent
-        delay: 0.1 + i * 0.05, // Staggered delay
+        ease: [0.25, 0.1, 0.25, 1], 
+        delay: 0.1 + i * 0.05, 
       },
     }),
   }
 
   return (
-    <div ref={containerRef}>
-      <h2 className="text-center text-5xl mb-5 text-primary md:text-3xl">Tech Stacks</h2>
+    <div ref={containerRef} className='bg-neutral-950 p-4 mb-8 mt-8 md:p-8'>
+      <Heading title="Tech Stacks" />
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 my-5 p-2.5 rounded-lg">
         <motion.ul
           ref={frontendRef}

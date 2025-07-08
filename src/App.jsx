@@ -8,6 +8,8 @@ import Projects from './pages/projects'
 import NavBar from './pages/navbar'
 import ContactForm from './pages/contact'
 import { TechStacks } from './pages/tech_stacks'
+import { BottomNavigation, CompactBottomNav } from './pages/bottomnav'
+
 
 function App() {
 
@@ -17,10 +19,18 @@ function App() {
       <RevealBento />
       <HoverImageLinks />
       <Projects />
-      <ContactForm />
+   
       <TechStacks />
       <SmoothScrollHero />
+      <ContactForm />
       <DragCards />
+      {/* conditionally use the compact nave or bottomnav depending on screen size */}
+      <div className='md:hidden'>
+        <CompactBottomNav />
+      </div>
+      <div className='hidden md:block'>
+        <BottomNavigation />
+      </div>
 
 
     </main>

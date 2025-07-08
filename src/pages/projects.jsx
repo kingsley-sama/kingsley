@@ -8,39 +8,27 @@ const Projects = () => {
         {
             title:"",
             link:"",
-            image: "",
+            image: "/projects/apple_website.webp",
             desc:""
         },
         {
             title:"",
             link:"",
-            image: "",
+            image: "/projects/music.webp",
             desc:""
         },
         {
             title:"",
             link:"",
-            image: "",
+            image: "/projects/hotelsandbooking.webp",
             desc:""
         },
         {
             title:"",
             link:"",
-            image: "",
+            image: "/projects/youplusai.png",
             desc:""
-        },
-        {
-          title:"",
-          link:"",
-          image: "",
-          desc:""
-      },
-      {
-        title:"",
-        link:"",
-        image: "",
-        desc:""
-    },
+        }
     ]
     const subheading = "A collection of projects and experiences"
     return (
@@ -111,7 +99,7 @@ const ProjectCard =({header, link, image, text}) =>{
               bottom: isHovered ? "0" : "0",
             }}
           >
-          <img src={"https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format"} alt={header} layout="fill" objectFit="cover" className='h-[100%]'/>
+          <img src={image} alt={header} layout="fill" objectFit="cover" className='h-[100%]'/>
           </div>
           <div className="col-start-2 text-black row-start-2 p-2 flex items-center justify-center bg-white">
             <a href={link} className="text-black hover:underline flex center">

@@ -62,9 +62,9 @@ const HeaderBlock = () => (
     <img
       src={headshot}
       alt="avatar"
-      className="mb-6 size-30 rounded-full"
+      className="mb-4 md:mb-6 size-20 md:size-30 rounded-full"
     />
-    <h1 className="mb-12 text-4xl font-medium leading-tight hover:text-neutral-50">
+    <h1 className="mb-8 md:mb-12 text-2xl md:text-4xl font-medium leading-tight hover:text-neutral-50">
       Hi, I'm Kingsley.{" "}
       <span className="text-zinc-400">
         I build cool websites like this one.
@@ -72,7 +72,7 @@ const HeaderBlock = () => (
     </h1>
     <a
       href="#"
-      className="flex items-center gap-1 text-red-300 hover:underline"
+      className="flex items-center gap-1 text-red-300 hover:underline text-sm md:text-base"
     >
       Contact me <FiArrowRight />
     </a>
@@ -90,7 +90,7 @@ const SocialsBlock = () => (
     >
       <a
         href="#"
-        className="grid h-full place-content-center text-3xl text-white"
+        className="grid h-full place-content-center text-2xl md:text-3xl text-white"
       >
         <SiYoutube />
       </a>
@@ -104,7 +104,7 @@ const SocialsBlock = () => (
     >
       <a
         href="#"
-        className="grid h-full place-content-center text-3xl text-white"
+        className="grid h-full place-content-center text-2xl md:text-3xl text-white"
       >
         <SiGithub />
       </a>
@@ -118,7 +118,7 @@ const SocialsBlock = () => (
     >
       <a
         href="#"
-        className="grid h-full place-content-center text-3xl text-black"
+        className="grid h-full place-content-center text-2xl md:text-3xl text-black"
       >
         <SiTiktok />
       </a>
@@ -132,7 +132,7 @@ const SocialsBlock = () => (
     >
       <a
         href="#"
-        className="grid h-full place-content-center text-3xl text-white"
+        className="grid h-full place-content-center text-2xl md:text-3xl text-white"
       >
         <SiX />
       </a>
@@ -141,7 +141,7 @@ const SocialsBlock = () => (
 );
 
 const AboutBlock = () => (
-  <Block className="col-span-12 text-3xl leading-snug">
+  <Block className="col-span-12 text-lg md:text-3xl leading-snug">
     <p>
       My passion is building cool stuff.{" "}
       <span className="text-zinc-400">
@@ -154,14 +154,14 @@ const AboutBlock = () => (
 
 const LocationBlock = () => (
   <Block className="col-span-12 flex flex-col items-center gap-4 md:col-span-3">
-    <FiMapPin className="text-3xl" />
-    <p className="text-center text-lg text-zinc-400">Cyberspace</p>
+    <FiMapPin className="text-2xl md:text-3xl" />
+    <p className="text-center text-base md:text-lg text-zinc-400">Cyberspace</p>
   </Block>
 );
 
 const EmailListBlock = () => (
   <Block className="col-span-12 md:col-span-9">
-    <p className="mb-3 text-lg">Join my mailing list</p>
+    <p className="mb-3 text-base md:text-lg">Join my mailing list</p>
     <form
       onSubmit={(e) => e.preventDefault()}
       className="flex items-center gap-2"
@@ -169,7 +169,7 @@ const EmailListBlock = () => (
       <input
         type="email"
         placeholder="Enter your email"
-        className="w-full rounded border border-zinc-700 bg-zinc-800 px-3 py-1.5 transition-colors focus:border-red-300 focus:outline-0"
+        className="w-full rounded border border-zinc-700 bg-zinc-800 px-3 py-1.5 transition-colors focus:border-red-300 focus:outline-0 text-sm md:text-base"
       />
       <button
         type="submit"
