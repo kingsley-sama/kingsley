@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import './App.css'
-import { SmoothScrollHero } from './pages/hero'
 import { DragCards } from './pages/banner'
 import { RevealBento } from './pages/aboutme'
 import { HoverImageLinks } from './pages/menu'
@@ -9,6 +8,8 @@ import NavBar from './pages/navbar'
 import ContactForm from './pages/contact'
 import { TechStacks } from './pages/tech_stacks'
 import { BottomNavigation, CompactBottomNav } from './pages/bottomnav'
+import DownBar from './components/footer'
+import AboutMeComponent from './pages/service'
 
 
 function App() {
@@ -16,22 +17,20 @@ function App() {
   return (
     <main className='bg-black'>
       <NavBar />
-      <RevealBento />
       <HoverImageLinks />
+      <RevealBento />
+      <AboutMeComponent />
       <Projects />
-   
       <TechStacks />
-      <SmoothScrollHero />
       <ContactForm />
       <DragCards />
-      {/* conditionally use the compact nave or bottomnav depending on screen size */}
       <div className='md:hidden'>
         <CompactBottomNav />
       </div>
       <div className='hidden md:block'>
         <BottomNavigation />
       </div>
-
+    <DownBar />
 
     </main>
   )

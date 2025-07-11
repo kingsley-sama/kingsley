@@ -7,7 +7,7 @@ import headshot from "./head_shot.png"
 
 export const RevealBento = () => {
   return (
-    <div className="min-h-screen text-neutral-500 bg-zinc-900 px-4 py-12 text-zinc-50 bg-neutral-950 mb-10 ">
+    <div className="min-h-screen text-neutral-500 bg-zinc-900 px-4 py-12 text-zinc-50 bg-neutral-950 mt-8 mb-10 ">
       <Logo />
       <motion.div
         initial="initial"
