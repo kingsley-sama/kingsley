@@ -113,7 +113,7 @@ const TechStacks = () => {
   }
 
   return (
-    <div ref={containerRef} className='bg-neutral-950 p-4 mb-8 mt-8 md:p-8'>
+    <div id="skills" ref={containerRef} className='bg-neutral-950 p-4 mb-8 mt-8 md:p-8'>
       <Heading title="Tech Stacks" />
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 my-5 p-2.5 rounded-lg">
         <motion.ul

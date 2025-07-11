@@ -18,7 +18,7 @@ const Cards = () => {
   const containerRef = useRef(null);
 
   return (
-    <>
+    <div id="fun">
     <Heading title="Certifications" className="text-neutral-50 mb-10" />
     <div className="absolute inset-0 z-10" ref={containerRef}>
       <Card
@@ -76,7 +76,7 @@ const Cards = () => {
         className="w-24 md:w-48"
       />
     </div>
-    </>
+    </div>
   );
 };
 

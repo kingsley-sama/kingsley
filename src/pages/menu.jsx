@@ -8,34 +8,34 @@ export const HoverImageLinks = () => {
     <section className="bg-neutral-950 p-4 md:p-8">
       <div className="mx-auto max-w-5xl">
         <Link
-          heading="About"
-          subheading="Learn what we do here"
+          heading="About Me"
+          subheading="My intersts and experiences"
           imgSrc={headshot}
-          href="#"
+          href="#about-me"
         />
         <Link
-          heading="Clients"
-          subheading="We work with great people"
+          heading="Experience"
+          subheading="I have worked with great Companies"
           imgSrc="/imgs/random/6.jpg"
-          href="#"
+          href="#projects"
         />
-        <Link
-          heading="Portfolio"
-          subheading="Our work speaks for itself"
-          imgSrc="/imgs/random/4.jpg"
-          href="#"
-        />
-        <Link
-          heading="Careers"
-          subheading="We want cool people"
+         <Link
+          heading="Contact"
+          subheading="I have certifications to back my qualification"
           imgSrc="/imgs/random/5.jpg"
-          href="#"
+          href="#contact-me"
+        />
+        <Link
+          heading="Skills"
+          subheading="Tools I've worked with"
+          imgSrc="/imgs/random/4.jpg"
+          href="#skills"
         />
         <Link
           heading="Fun"
-          subheading="Incase you're bored"
+          subheading="I wind down with great activities"
           imgSrc="/imgs/random/10.jpg"
-          href="#"
+          href="/#fun"
         />
       </div>
     </section>

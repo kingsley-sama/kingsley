@@ -24,6 +24,7 @@ export default function ContactForm() {
 
   return (
     <div 
+      id='contact-me'
       className="w-full bg-cover bg-neutral-950 bg-center font-sans mb-10"
     >
       {/* Header */}

@@ -6,13 +6,13 @@ const Projects = () => {
     const heading = "Projects"
     const projects = [
         {
-            title:"",
-            link:"",
+            title:"Kizush Constructions",
+            link:"https://kizushconstruction.com",
             image: "/projects/apple_website.webp",
             desc:""
         },
         {
-            title:"",
+            title:"Ezen",
             link:"",
             image: "/projects/music.webp",
             desc:""
@@ -24,9 +24,9 @@ const Projects = () => {
             desc:""
         },
         {
-            title:"",
-            link:"",
-            image: "/projects/youplusai.png",
+            title:"Odomiterentals",
+            link:"https://odomiterentals.com",
+            image: "/projects/odomite_rentals.png",
             desc:""
         }
     ]
@@ -81,6 +81,7 @@ const ProjectCard =({header, link, image, text}) =>{
   
     return (
         <div
+          id='projects'
           className="grid grid-cols-2 grid-rows-2 bg-neutral-50 h-[300px] w-full relative overflow-hidden max-w-[350px]"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}

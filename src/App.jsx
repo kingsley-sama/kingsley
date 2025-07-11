@@ -10,11 +10,12 @@ import { TechStacks } from './pages/tech_stacks'
 import { BottomNavigation, CompactBottomNav } from './pages/bottomnav'
 import DownBar from './components/footer'
 import AboutMeComponent from './pages/service'
-
+import {ReactLenis} from '@studio-freight/react-lenis'
 
 function App() {
 
   return (
+    <ReactLenis >
     <main className='bg-black'>
       <NavBar />
       <HoverImageLinks />
@@ -33,6 +34,7 @@ function App() {
     <DownBar />
 
     </main>
+    </ReactLenis>
   )
 }
 

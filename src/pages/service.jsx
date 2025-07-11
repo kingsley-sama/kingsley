@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function AboutMeComponent() {
   return (
-    <div className="bg-neutral-950 min-h-screen p-12">
+    <div id='about-me' className="bg-neutral-950 min-h-screen p-12">
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-end mb-8">
           <span className="text-4xl text-gray-300 font-light">02</span>
@@ -36,7 +36,6 @@ export default function AboutMeComponent() {
           <div className="col-span-7 flex justify-end">
             <div className="w-80 h-80 bg-gray-100 rounded-lg overflow-hidden shadow-lg transform rotate-3">
               <div className="w-full h-full bg-gradient-to-br from-gray-300">
-
               </div>
             </div>
           </div>
