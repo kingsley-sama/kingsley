@@ -10,30 +10,41 @@ import { TechStacks } from './pages/tech_stacks'
 import { BottomNavigation, CompactBottomNav } from './pages/bottomnav'
 import DownBar from './components/footer'
 import AboutMeComponent from './pages/service'
-import {ReactLenis} from '@studio-freight/react-lenis'
+import { ReactLenis } from '@studio-freight/react-lenis'
 
 function App() {
-
   return (
-    <ReactLenis >
-    <main className='bg-black'>
-      <NavBar />
-      <HoverImageLinks />
-      <RevealBento />
-      <AboutMeComponent />
-      <Projects />
-      <TechStacks />
-      <ContactForm />
-      <DragCards />
-      <div className='md:hidden'>
-        <CompactBottomNav />
-      </div>
-      <div className='hidden md:block'>
-        <BottomNavigation />
-      </div>
-    <DownBar />
-
-    </main>
+    <ReactLenis 
+      root
+      options={{
+        lerp: 0.1,
+        duration: 1.2,
+        orientation: 'vertical',
+        gestureOrientation: 'vertical',
+        smoothWheel: true,
+        wheelMultiplier: 1,
+        touchMultiplier: 2,
+        normalizeWheel: true,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      }}
+    >
+      <main className='bg-black'>
+        <NavBar />
+        <HoverImageLinks />
+        <RevealBento />
+        <AboutMeComponent />
+        <Projects />
+        <TechStacks />
+        <ContactForm />
+        <DragCards />
+        <div className='md:hidden'>
+          <CompactBottomNav />
+        </div>
+        <div className='hidden md:block'>
+          <BottomNavigation />
+        </div>
+        <DownBar />
+      </main>
     </ReactLenis>
   )
 }
