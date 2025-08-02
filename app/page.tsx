@@ -1,142 +1,61 @@
 "use client"
 
-import { useState, useEffect } from "react"
-import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import {
   Users,
   FolderOpen,
   BarChart3,
   Shield,
-  ArrowRight,
   CheckCircle,
-  Star,
   Zap,
-  Target,
   TrendingUp,
-  Clock,
-  Award,
-  Sparkles,
-  Play,
-  Menu,
-  GitBranch,
   Github,
 } from "lucide-react"
-import Link from "next/link"
-import Image from "next/image"
 import AnimatedDashboard from "@/components/about-me"
 import ContactForm from "@/components/contact-form"
 import Projects from "@/components/projects"
 import AboutMeComponent from "@/components/about"
-import { Dock } from "@/components/dock"
 import DownBar from "@/components/bottom_nav"
 import { SiteMap } from "@/components/site-map"
 import { TechStacks } from "@/components/tech-stacks"
 
 export default function HomePage() {
-  const [isVisible, setIsVisible] = useState(false)
-  const [currentTestimonial, setCurrentTestimonial] = useState(0)
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-
-  useEffect(() => {
-    setIsVisible(true)
-    const interval = setInterval(() => {
-      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length)
-    }, 4000)
-    return () => clearInterval(interval)
-  }, [])
-
   const features = [
     {
       icon: Users,
       title: "HR Management Softwares",
       description: "Comprehensive client profiles with contact information and project history",
-      color: "bg-blue-500",
       gradient: "from-blue-500 to-cyan-500",
     },
     {
       icon: FolderOpen,
       title: "Ecommerce Platforms",
       description: "Organize and monitor all your projects with detailed progress tracking",
-      color: "bg-green-500",
       gradient: "from-green-500 to-emerald-500",
     },
     {
       icon: BarChart3,
       title: "Dashboard Analytics",
       description: "Real-time insights into your business performance and project status",
-      color: "bg-purple-500",
       gradient: "from-purple-500 to-pink-500",
     },
     {
       icon: Shield,
       title: "AI Softwares",
       description: "Admin and user roles with appropriate permissions and access control",
-      color: "bg-orange-500",
       gradient: "from-orange-500 to-red-500",
     },
   ]
 
-  const stats = [
-    { number: "50K+", label: "Active Users", icon: Users },
-    { number: "1M+", label: "Projects Managed", icon: FolderOpen },
-    { number: "99.9%", label: "Uptime", icon: Shield },
-    { number: "4.9/5", label: "User Rating", icon: Star },
-  ]
-
-  const testimonials = [
-    {
-      name: "Sarah Johnson",
-      role: "CEO, TechStart Inc",
-      content: "ClientManager transformed our business operations. We've seen 40% increase in productivity!",
-      avatar: "/placeholder.svg?height=60&width=60",
-    },
-    {
-      name: "Michael Chen",
-      role: "Project Manager, Acme Corp",
-      content: "The best investment we've made. Our client satisfaction scores have never been higher.",
-      avatar: "/placeholder.svg?height=60&width=60",
-    },
-    {
-      name: "Emily Rodriguez",
-      role: "Founder, Creative Agency",
-      content: "Intuitive, powerful, and reliable. ClientManager is essential for any growing business.",
-      avatar: "/placeholder.svg?height=60&width=60",
-    },
-  ]
-
-  const navigationItems = [
-    { name: "Features", href: "#features" },
-    { name: "Reviews", href: "#testimonials" },
-    { name: "About", href: "#about" },
-    { name: "Contact", href: "#contact" },
-  ]
-
-  const handleNavClick = (href: string) => {
-    setMobileMenuOpen(false)
-    // Smooth scroll to section
-    if (href.startsWith("#")) {
-      const element = document.querySelector(href)
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" })
-      }
-    }
-  }
-
   return (
     <>
     <div className="min-h-screen bg-neutral-950 overflow-hidden">
-
-      
-        {/* Hero Image/Dashboard Preview */}
       <AnimatedDashboard />
       <AboutMeComponent />
       <Projects />
       <ContactForm />
       
-      {/* Features Section */}
       <section id="features" className="py-24 px-4 bg-neutral-950">
         <div className="container mx-auto">
           <div className="text-center mb-20">
@@ -178,7 +97,6 @@ export default function HomePage() {
             ))}
           </div>
 
-          {/* Additional Features Grid */}
           <div className="mt-20 grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
             <div>
               <h3 className="flex items-center gap-2 text-2xl sm:text-3xl font-bold text-gray-700 mb-6 hover:text-green-100"><Github/> Git History</h3>

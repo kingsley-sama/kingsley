@@ -7,7 +7,6 @@ import {
   Globe, 
   Server, 
   Cloud, 
-  GitBranch, 
   Layers, 
   Zap,
   Box,

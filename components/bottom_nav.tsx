@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowBigUp, ArrowUp } from 'lucide-react';
+import { ArrowUp } from 'lucide-react';
 import Animated3DWrapper from './animated_3d_wrapper';
 
 const DownBar = () => {

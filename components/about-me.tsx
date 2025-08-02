@@ -4,7 +4,7 @@ import type React from "react"
 import { useState, useRef, useCallback } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Box, FolderOpen, Square, TrendingUp, X } from "lucide-react"
+import { FolderOpen, Square, TrendingUp, X } from "lucide-react"
 import Image from "next/image"
 
 export default function AnimatedDashboard() {
@@ -19,7 +19,6 @@ export default function AnimatedDashboard() {
     const centerX = rect.left + rect.width / 2
     const centerY = rect.top + rect.height / 2
 
-    // Calculate mouse position relative to card center (-1 to 1)
     const x = (e.clientX - centerX) / (rect.width / 2)
     const y = (e.clientY - centerY) / (rect.height / 2)
 
@@ -35,13 +34,12 @@ export default function AnimatedDashboard() {
     setMousePosition({ x: 0, y: 0 })
   }
 
-  // Calculate heavy transform values based on mouse position
-  const rotateX = isHovered ? -mousePosition.y * 3 : 0 // Heavy vertical tilt
-  const rotateY = isHovered ? mousePosition.x * 3: 0 // Heavy horizontal tilt
-  const translateX = isHovered ? mousePosition.x * 10 : 0 // Sideways movement
-  const translateY = isHovered ? mousePosition.y * 8 : 0 // Vertical movement
-  const translateZ = isHovered ? 25 : 0 // Forward movement
-  const scale = isHovered ? 1.05 : 1 // Scale up
+  const rotateX = isHovered ? -mousePosition.y * 3 : 0
+  const rotateY = isHovered ? mousePosition.x * 3: 0
+  const translateX = isHovered ? mousePosition.x * 10 : 0
+  const translateY = isHovered ? mousePosition.y * 8 : 0
+  const translateZ = isHovered ? 25 : 0
+  const scale = isHovered ? 1.05 : 1
 
   const neonTextShadow = {
     textShadow: `

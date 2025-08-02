@@ -1,5 +1,5 @@
 import type React from "react"
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import { Dock } from "@/components/dock"
@@ -35,13 +35,14 @@ export const metadata: Metadata = {
     ]
   },
   manifest: '/favicon_io/site.webmanifest',
+}
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
   themeColor: '#000000',
   colorScheme: 'dark',
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 1,
-  },
 }
 
 export default function RootLayout({
@@ -52,12 +53,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        {/* Favicons are now handled by Next.js metadata API above */}
       </head>
       <body className={inter.className} suppressHydrationWarning={true}>
         <Dock />
+        <>
         {children}
+        </>
       </body>
     </html>
   )
