@@ -135,6 +135,25 @@ html {
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+/* Simple fade-in and fade-in-up animations used across sections */
+@keyframes fade-in {
+  from { opacity: 0 }
+  to { opacity: 1 }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(24px) }
+  to { opacity: 1; transform: translateY(0) }
+}
+
+.animate-fade-in {
+  animation: fade-in 800ms ease forwards;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 800ms ease forwards;
+}
+
 ::-webkit-scrollbar {
   width: 8px;
 }

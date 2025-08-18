@@ -19,6 +19,7 @@ import AboutMeComponent from "@/components/about"
 import DownBar from "@/components/bottom_nav"
 import { SiteMap } from "@/components/site-map"
 import { TechStacks } from "@/components/tech-stacks"
+import Menu from "@/components/menu"
 
 export default function HomePage() {
   const features = [
@@ -51,6 +52,7 @@ export default function HomePage() {
   return (
     <>
     <div className="min-h-screen bg-neutral-950 overflow-hidden">
+  <Menu />
       <AnimatedDashboard />
       <AboutMeComponent />
       <Projects />

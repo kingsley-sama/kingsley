@@ -3,7 +3,7 @@ import type { Metadata, Viewport } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import { Dock } from "@/components/dock"
-import Menu from "@/components/menu"
+import { PreloaderProvider } from "@/components/preloader-provider"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -55,13 +55,11 @@ export default function RootLayout({
     <html lang="en">
       <head>
       </head>
-      <Dock />
       <body className={inter.className} suppressHydrationWarning={true}>
-  <Menu />
-  
-        <>
-        {children}
-        </>
+        <PreloaderProvider>
+          <Dock />
+          {children}
+        </PreloaderProvider>
       </body>
     </html>
   )
