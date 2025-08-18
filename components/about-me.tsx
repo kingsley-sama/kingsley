@@ -1,7 +1,7 @@
 "use client"
 
 import type React from "react"
-import { useState, useRef, useCallback } from "react"
+import { useState, useRef, useCallback, useEffect } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { FolderOpen, Square, TrendingUp, X } from "lucide-react"
@@ -11,6 +11,26 @@ export default function AnimatedDashboard() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [isHovered, setIsHovered] = useState(false)
   const cardRef = useRef<HTMLDivElement>(null)
+
+  // Detect mobile/coarse pointer devices
+  const [isMobile, setIsMobile] = useState(false)
+  useEffect(() => {
+    if (typeof window === "undefined" || !("matchMedia" in window)) return
+    const mq = window.matchMedia("(hover: none) and (pointer: coarse)")
+    const update = () => setIsMobile(mq.matches)
+    update()
+    try {
+      mq.addEventListener("change", update)
+      return () => mq.removeEventListener("change", update)
+    } catch {
+      // @ts-ignore - Safari fallback
+      mq.addListener(update)
+      return () => {
+        // @ts-ignore - Safari fallback
+        mq.removeListener(update)
+      }
+    }
+  }, [])
 
   const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     if (!cardRef.current) return
@@ -38,8 +58,8 @@ export default function AnimatedDashboard() {
   const rotateY = isHovered ? mousePosition.x * 3: 0
   const translateX = isHovered ? mousePosition.x * 10 : 0
   const translateY = isHovered ? mousePosition.y * 8 : 0
-  const translateZ = isHovered ? 25 : 0
-  const scale = isHovered ? 1.05 : 1
+  const translateZ = isHovered ? (isMobile ? 0 : 25) : 0
+  const scale = isHovered ? (isMobile ? 1 : 1.05) : 1
 
   const neonTextShadow = {
     textShadow: `
@@ -119,7 +139,7 @@ export default function AnimatedDashboard() {
               <Card
                 className="border-0 shadow-lg bg-gradient-to-br from-blue-50 to-blue-100 transition-transform duration-200"
                 style={{
-                  transform: isHovered ? `translateZ(${5 + mousePosition.x * 3}px)` : "translateZ(0px)",
+                  transform: isHovered ? `translateZ(${isMobile ? 0 : 5 + mousePosition.x * 3}px)` : "translateZ(0px)",
                 }}
               >
                 <CardContent className="p-4 sm:p-6">
@@ -141,7 +161,7 @@ export default function AnimatedDashboard() {
               <Card
                 className="border-0 shadow-lg bg-gradient-to-br from-green-50 to-green-100 transition-transform duration-200"
                 style={{
-                  transform: isHovered ? `translateZ(${8 + mousePosition.y * 2}px)` : "translateZ(0px)",
+                  transform: isHovered ? `translateZ(${isMobile ? 0 : 8 + mousePosition.y * 2}px)` : "translateZ(0px)",
                 }}
               >
                 <CardContent className="p-4 sm:p-6">
@@ -157,7 +177,7 @@ export default function AnimatedDashboard() {
               <Card
                 className="border-0 shadow-lg bg-gradient-to-br from-purple-50 to-purple-100 transition-transform duration-200"
                 style={{
-                  transform: isHovered ? `translateZ(${6 + mousePosition.x * -2}px)` : "translateZ(0px)",
+                  transform: isHovered ? `translateZ(${isMobile ? 0 : 6 + mousePosition.x * -2}px)` : "translateZ(0px)",
                 }}
               >
                 <CardContent className="p-4 sm:p-6">
@@ -174,7 +194,7 @@ export default function AnimatedDashboard() {
             <div
               className="h-fit pt-2 min-h-fit bg-gradient-to-r from-blue-100 to-purple-100 rounded-lg flex items-center justify-center transition-transform duration-200"
               style={{
-                transform: isHovered ? `translateZ(${4 + mousePosition.y * 1.5}px)` : "translateZ(0px)",
+                transform: isHovered ? `translateZ(${isMobile ? 0 : 4 + mousePosition.y * 1.5}px)` : "translateZ(0px)",
               }}
             >
               <div className="text-gray-500 font-medium text-sm sm:text-base p-4">

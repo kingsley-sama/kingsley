@@ -1,7 +1,7 @@
 "use client"
 
 import type React from "react"
-import { useState, useRef, useCallback } from "react"
+import { useState, useRef, useCallback, useEffect } from "react"
 
 interface Animated3DWrapperProps {
   children: React.ReactNode | ((props: { isHovered: boolean; mousePosition: { x: number; y: number } }) => React.ReactNode)
@@ -25,6 +25,27 @@ export default function Animated3DWrapper({
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [isHovered, setIsHovered] = useState(false)
   const wrapperRef = useRef<HTMLDivElement>(null)
+
+  // Detect mobile/coarse pointer devices to tweak effects
+  const [isMobile, setIsMobile] = useState(false)
+  useEffect(() => {
+    if (typeof window === "undefined" || !("matchMedia" in window)) return
+    const mq = window.matchMedia("(hover: none) and (pointer: coarse)")
+    const update = () => setIsMobile(mq.matches)
+    update()
+    // addEventListener fallback for older browsers
+    try {
+      mq.addEventListener("change", update)
+      return () => mq.removeEventListener("change", update)
+    } catch {
+      // @ts-ignore - Safari fallback
+      mq.addListener(update)
+      return () => {
+        // @ts-ignore - Safari fallback
+        mq.removeListener(update)
+      }
+    }
+  }, [])
 
   const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     if (!wrapperRef.current) return
@@ -54,8 +75,9 @@ export default function Animated3DWrapper({
   const rotateY = isHovered ? mousePosition.x * 3 * intensity : 0
   const translateX = isHovered ? mousePosition.x * 10 * intensity : 0
   const translateY = isHovered ? mousePosition.y * 8 * intensity : 0
-  const translateZ = isHovered ? 25 * intensity : 0
-  const scale = isHovered ? 1 + (0.05 * intensity) : 1
+  // On mobile, remove zoom effect by clamping scale to 1 and translateZ to 0
+  const translateZ = isHovered ? (isMobile ? 0 : 25 * intensity) : 0
+  const scale = isHovered ? (isMobile ? 1 : 1 + 0.05 * intensity) : 1
 
   return (
     <div className="relative" style={{ perspective: "1200px" }}>
@@ -135,9 +157,29 @@ export function useAnimationState(intensity: number = 1) {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [isHovered, setIsHovered] = useState(false)
 
+  // Mirror the mobile detection here to keep child transforms consistent
+  const [isMobile, setIsMobile] = useState(false)
+  useEffect(() => {
+    if (typeof window === "undefined" || !("matchMedia" in window)) return
+    const mq = window.matchMedia("(hover: none) and (pointer: coarse)")
+    const update = () => setIsMobile(mq.matches)
+    update()
+    try {
+      mq.addEventListener("change", update)
+      return () => mq.removeEventListener("change", update)
+    } catch {
+      // @ts-ignore - Safari fallback
+      mq.addListener(update)
+      return () => {
+        // @ts-ignore - Safari fallback
+        mq.removeListener(update)
+      }
+    }
+  }, [])
+
   const getChildTransform = (offsetZ: number = 0) => {
-    return isHovered 
-      ? `translateZ(${(offsetZ + mousePosition.x * 3) * intensity}px)` 
+    return isHovered
+      ? `translateZ(${(isMobile ? 0 : (offsetZ + mousePosition.x * 3) * intensity)}px)`
       : "translateZ(0px)"
   }
 

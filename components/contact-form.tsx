@@ -1,8 +1,8 @@
-    "use client"
+  "use client"
 
 import type React from "react"
 
-import { useState, useRef, useCallback } from "react"
+import { useState, useRef, useCallback, useEffect } from "react"
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -13,6 +13,26 @@ export default function ContactForm() {
   const [isHovered, setIsHovered] = useState(false)
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 }) // Keep for internal calculations if needed, but not displayed
   const formRef = useRef<HTMLDivElement>(null)
+
+  // Detect mobile/coarse pointer devices
+  const [isMobile, setIsMobile] = useState(false)
+  useEffect(() => {
+    if (typeof window === "undefined" || !("matchMedia" in window)) return
+    const mq = window.matchMedia("(hover: none) and (pointer: coarse)")
+    const update = () => setIsMobile(mq.matches)
+    update()
+    try {
+      mq.addEventListener("change", update)
+      return () => mq.removeEventListener("change", update)
+    } catch {
+      // @ts-ignore - Safari fallback
+      mq.addListener(update)
+      return () => {
+        // @ts-ignore - Safari fallback
+        mq.removeListener(update)
+      }
+    }
+  }, [])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -57,8 +77,9 @@ export default function ContactForm() {
   const rotateY = isHovered ? mousePosition.x * 2 : 0 // Horizontal tilt
   const translateX = isHovered ? mousePosition.x * 10 : 0 // Sideways movement
   const translateY = isHovered ? mousePosition.y * 8 : 0 // Vertical movement
-  const translateZ = isHovered ? 25 : 0 // Forward movement
-  const scale = isHovered ? 1.05 : 1 // Scale up
+  // On mobile, remove zoom by disabling scale and forward Z
+  const translateZ = isHovered ? (isMobile ? 0 : 25) : 0 // Forward movement
+  const scale = isHovered ? (isMobile ? 1 : 1.05) : 1 // Scale up
 
   return (
     <div  className="container bg-cover bg-neutral-950 bg-center font-sans mb-10">
