@@ -1,0 +1,15 @@
+- python
+- javascript
+- NextJS
+- FastAPI
+- PostgreSQL
+- Clickup
+- Tailwind
+- N8N
+- AWS
+- Microsoft Graph API
+- Fierebase
+- Superbase
+- OpenAI
+- Claude
+- Gemini

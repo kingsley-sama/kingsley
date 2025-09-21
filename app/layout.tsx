@@ -4,6 +4,7 @@ import { Inter } from "next/font/google"
 import "./globals.css"
 import { Dock } from "@/components/dock"
 import { PreloaderProvider } from "@/components/preloader-provider"
+import { LenisProvider } from "@/components/lenis-provider"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -46,16 +47,12 @@ export const viewport: Viewport = {
   colorScheme: 'dark',
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <head>
-      </head>
+      <head></head>
       <body className={inter.className} suppressHydrationWarning={true}>
+        <LenisProvider />
         <PreloaderProvider>
           <Dock />
           {children}

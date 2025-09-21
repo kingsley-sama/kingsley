@@ -70,7 +70,7 @@ export default function AnimatedDashboard() {
   }
 
   return (
-    <div className="container mx-auto px-4 mt-20">
+    <div className="container mx-auto py-12 px-4 mt-20">
       <div className="relative max-w-6xl mx-auto" style={{ perspective: "1200px" }}>
         {/* Enhanced glowing background gradient */}
         <div
@@ -124,15 +124,6 @@ export default function AnimatedDashboard() {
               opacity: isHovered ? 1 : 0,
             }}
           />
-
-          {/* Header with traffic lights */}
-          <div className="bg-gradient-to-r from-neutral-950 to-neutral-800 px-4 sm:px-6 py-4 flex items-center space-x-2 relative z-20">
-            <div className="flex items-center justify-center w-4 h-4 md:w-5 md:h-5 bg-red-400 rounded-full p-1" ><X className="h-3 w-3 font-bold"/></div>
-            <div className="flex items-center justify-center w-4 h-4 md:w-5 md:h-5 bg-yellow-400 rounded-full" >-</div>
-            <div className="flex items-center justify-center w-4 h-4 md:w-5 md:h-5 bg-green-400 rounded-full" ><Square className="h-2 w-2 font-bold"/></div>
-            <div className="ml-4 text-md sm:text-lg text-gray-200 font-medium  sm:block">Kingsley Okpo</div>
-          </div>
-
           {/* Main content */}
           <div className="p-4 sm:p-8 relative z-20">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">

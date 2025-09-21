@@ -24,6 +24,7 @@ import {
   CloudLightningIcon
 } from "lucide-react"
 import Animated3DWrapper from "./animated_3d_wrapper"
+import { SectionHeading } from "./section-heading"
 
 interface TechStack {
   name: string
@@ -85,11 +86,9 @@ export function TechStacks() {
           <div className="p-6 md:p-8">
             {/* Header */}
             <div className="flex justify-between items-start mb-8">
-              <div>
-                <h2 className="text-4xl md:text-6xl font-bold text-white mb-4">
-                  Tech Stack
-                </h2>
-                <p className="text-gray-400 text-lg">
+              <div className="flex flex-col">
+                <SectionHeading text="Tech Stack" className="m-0 mb-4 text-3xl md:text-6xl" />
+                <p className="text-gray-400 text-lg -mt-4 md:-mt-2 ml-10 md:ml-10">
                   Technologies I work with to build amazing solutions
                 </p>
               </div>

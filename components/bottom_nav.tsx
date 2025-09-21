@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ArrowUp } from 'lucide-react';
 import Animated3DWrapper from './animated_3d_wrapper';
+import { SectionHeading } from './section-heading';
 
 const DownBar = () => {
   const [hoveredLink, setHoveredLink] = useState<string | null>(null);
@@ -36,32 +37,42 @@ const handleMouseEnter = (linkName: string): void => {
               <span className={`text-4xl font-bold transition-colors duration-300 ${
                 isHovered ? 'text-green-100' : 'text-gray-500'
               }`}>
-                04
+                07
               </span>
             </div>
             
             <div className="px-5 flex justify-around flex-col md:flex-row items-center h-[500px] w-full gap-36  md:gap-5 md:h-fit">
-              <div className="text-left">
-          <h1 className="text-5xl font-bold m-0 leading-tight text-white md:text-7xl">
-            Let's<br />Collaborate
-          </h1>
-          <div className="mt-5">
-            {links.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className={`text-gray-500 no-underline mr-4 text-base transition-all duration-300 ease-in-out hover:text-white hover:translate-x-2 relative ${
-                  hoveredLink === link.name 
-                    ? 'text-white pl-10 text-lg before:content-[""] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-10 before:h-1 before:bg-white before:transition-all before:duration-300 before:ease-in-out' 
-                    : ''
-                }`}
-                onMouseEnter={() => handleMouseEnter(link.name)}
-                onMouseLeave={handleMouseLeave}
-              >
-                {link.name}
-              </a>
-            ))}
+        <div className="text-left w-full md:w-auto">
+          <div className="mb-6 space-y-2">
+            <SectionHeading text={"LET'S"} className="m-0 text-white text-4xl md:text-7xl leading-[0.9]" />
+            <SectionHeading text={"COLLABORATE"} className="m-0 text-white text-4xl md:text-7xl leading-[0.9]" />
           </div>
+          <ul className="flex flex-row flex-wrap gap-6 mt-4 items-center">
+            {links.map((link) => {
+              const active = hoveredLink === link.name
+              return (
+                <li key={link.name} className="relative">
+                  <a
+                    href={link.href}
+                    onMouseEnter={() => handleMouseEnter(link.name)}
+                    onMouseLeave={handleMouseLeave}
+                    className={`group inline-block text-sm md:text-base font-medium tracking-wide transition-colors duration-300 ${
+                      active ? 'text-white' : 'text-gray-500 hover:text-gray-200'
+                    }`}
+                  >
+                    <span className="relative px-1">
+                      {link.name}
+                      <span
+                        className={`pointer-events-none absolute left-0 -bottom-1 h-[2px] w-full origin-left scale-x-0 bg-gradient-to-r from-white/40 via-white to-white/60 transition-transform duration-500 ease-out group-hover:scale-x-100 ${
+                          active ? 'scale-x-100' : ''
+                        }`}
+                      />
+                    </span>
+                  </a>
+                </li>
+              )
+            })}
+          </ul>
         </div>
         
         <div className="w-52 h-52 rounded-full border-2 border-white flex justify-center items-center relative cursor-pointer group transition-all duration-500 ease-in-out hover:bg-white">

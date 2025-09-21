@@ -1,5 +1,5 @@
 "use client"
-
+import { Box, Circle, Square, Triangle, X } from "lucide-react"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import type React from "react"
@@ -10,13 +10,21 @@ export default function Menu() {
 	const router = useRouter()
 	const { trigger } = usePreloader()
 	const items = [
-		{ href: "/myworks", label: "My Work", Icon: Briefcase },
-		{ href: "/articles", label: "Articles", Icon: FileText },
+		{ href: "/myworks", label: "My Works", Icon: Briefcase },
+		/* { href: "/articles", label: "Articles", Icon: FileText }, */
 	]
 
 	return (
-		<header className="fixed top-0 z-50  bg-black/30 backdrop-blur supports-[backdrop-filter]:bg-black/40 right-0 w-full">
-					<nav className="container mx-auto max-w-6xl px-4 ">
+		<header className="fixed top-0 z-50  bg-black backdrop-blur supports-[backdrop-filter]:bg-black/70 right-0 w-full">
+					<nav className="container px-1 mx-auto sm:max-w-8xl sm:px-4 flex items-end justify-between">
+
+						{/* Header with traffic lights */}
+						<div className="flex flex-1 h-12 w-full items-center space-x-1/2">
+							<div className="flex items-center justify-center w-4 h-4 md:w-5 md:h-5" ><Square className="text-blue-200 font-600"/></div>
+							<div className="flex items-center justify-center w-4 h-4 md:w-5 md:h-5 " ><X className="font-600 text-green-200"/></div>
+							<div className="flex items-center justify-center w-4 h-4 md:w-5 md:h-5" ><Circle className="text-purple-200"/></div> 
+							<div className="ml-3 text-md sm:text-lg text-gray-200 font-medium  sm:block">Kingsley</div>
+						</div>
 						<div className="flex h-12 w-full items-center justify-end gap-6 mx-auto pr-6">
 								  {items.map(({ href, label, Icon }) => {
 												const onClick = (e: React.MouseEvent) => {

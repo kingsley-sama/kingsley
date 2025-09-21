@@ -58,7 +58,7 @@ const ArcGalleryHero: React.FC<ArcGalleryHeroProps> = ({
   const step = (endAngle - startAngle) / (count - 1)
 
   return (
-    <section className={`relative overflow-hidden bg-background min-h-screen flex flex-col ${className}`}>
+    <section className={`relative overflow-hidden bg-background min-h-[65vh] lg:min-h-[50vh] lg:max-h-[75vh] flex flex-col ${className}`}>
 
       {/* Background ring container that controls geometry */}
       <div
@@ -86,6 +86,7 @@ const ArcGalleryHero: React.FC<ArcGalleryHeroProps> = ({
                 style={{
                   width: dimensions.cardSize,
                   height: dimensions.cardSize,
+                  
                   left: `calc(50% + ${x}px)`,
                   bottom: `${y}px`,
                   transform: `translate(-50%, 50%)`,
@@ -100,7 +101,10 @@ const ArcGalleryHero: React.FC<ArcGalleryHeroProps> = ({
                 >
                   <img
                     src={src || "/placeholder.svg"}
-                    alt=""
+                    alt={src}
+                    style={{
+                      objectFit:"contain"
+                    }}
                     className="block w-full h-full object-cover"
                     draggable={false}
                   />
@@ -112,21 +116,18 @@ const ArcGalleryHero: React.FC<ArcGalleryHeroProps> = ({
       </div>
 
       {/* Content positioned below the arc */}
-      <div className="relative z-10 flex-1 flex items-center justify-center px-6 -mt-40 md:-mt-52 lg:-mt-64">
+      <div className="relative z-10 flex-1 flex items-center justify-center px-6 -mt-40 md:-mt-52 lg:-mt-64 mx-auto">
         <div
           className="text-center max-w-2xl px-6 opacity-0 animate-fade-in"
           style={{ animationDelay: "800ms", animationFillMode: "forwards" }}
         >
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
-            Make v0.dev your new home
+          Tools and Experiences
           </h1>
-          <p className="mt-4 text-lg text-muted-foreground">Create stunning UI Designs in seconds.</p>
+          <p className="mt-4 text-lg text-muted-foreground">I am a developer combining innovation and industry best practices into one thing. Your Project !</p>
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
             <button className="w-full sm:w-auto px-6 py-3 rounded-full bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
-              Start generating
-            </button>
-            <button className="w-full sm:w-auto px-6 py-3 rounded-full border border-border hover:bg-accent hover:text-accent-foreground transition-all duration-200">
-              Learn more
+              Download Resume
             </button>
           </div>
         </div>

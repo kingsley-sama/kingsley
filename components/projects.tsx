@@ -1,8 +1,8 @@
 import React, {useState} from 'react'
-import { motion } from 'framer-motion'
 import { ExternalLink } from 'lucide-react'
 import Image from 'next/image'
 import Animated3DWrapper from './animated_3d_wrapper'
+import { SectionHeading } from './section-heading'
 
 interface ProjectCardProps {
   header: string;
@@ -12,7 +12,7 @@ interface ProjectCardProps {
 }
 
 const Projects = () => {
-    const heading = "Projects"
+  const heading = "Projects"
     const projects = [
         {
             title:"Kizush Constructions",
@@ -45,42 +45,15 @@ const Projects = () => {
             <Animated3DWrapper className="bg-neutral-950 rounded-2xl shadow-2xl overflow-hidden">
                 {({ isHovered, mousePosition }) => (
                     <div className='p-4 mb-8 mt-8 md:p-8'>
-                        <div className="flex justify-end mb-8">
-                            <span className={`text-4xl font-bold transition-colors duration-300 ${
-                                isHovered ? 'text-green-100' : 'text-gray-500'
-                            }`}>
-                                03
-                            </span>
-                        </div>
-                        <div>
-        <motion.span
-          whileHover="whileHover"
-          variants={{
-            initial: { x: 0 },
-            whileHover: { x: -16 },
-          }}
-          transition={{
-            type: "spring",
-            staggerChildren: 0.075,
-            delayChildren: 0.25,
-          }}
-          className="relative z-10 block text-4xl m-10 font-bold text-neutral-500 transition-colors duration-500 hover:text-neutral-50 md:text-6xl"
-        >
-          {heading.split("").map((l, i) => (
-            <motion.span
-              variants={{
-                initial: { x: 0 },
-                whileHover: { x: 16 },
-              }}
-              transition={{ type: "spring" }}
-              className="inline-block"
-              key={i}
-            >
-              {l}
-            </motion.span>
-          ))}
-        </motion.span>
-      </div>
+            <div className="flex justify-end mb-8">
+              {/* Section number 03 (after About 02) */}
+              <span className={`text-4xl font-bold transition-colors duration-300 ${
+                isHovered ? 'text-green-100' : 'text-gray-500'
+              }`}>
+                03
+              </span>
+            </div>
+                        <SectionHeading text={heading} />
             <div className="flex flex-wrap gap-6 justify-center">
             {
                 projects.map((project, index)=><ProjectCard 

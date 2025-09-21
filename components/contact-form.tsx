@@ -1,6 +1,7 @@
   "use client"
 
 import type React from "react"
+import { SectionHeading } from "./section-heading"
 
 import { useState, useRef, useCallback, useEffect } from "react"
 
@@ -82,7 +83,7 @@ export default function ContactForm() {
   const scale = isHovered ? (isMobile ? 1 : 1.05) : 1 // Scale up
 
   return (
-    <div  className="container bg-cover bg-neutral-950 bg-center font-sans mb-10">
+    <div  className=" bg-cover bg-neutral-950 bg-center font-sans mb-10 max-w-6xl mx-auto">
       {/* Header */}
       <header className="bg-black bg-opacity-70 w-full p-0">
         <div className="w-full"></div>
@@ -143,10 +144,14 @@ export default function ContactForm() {
               }}
             />
 
-            {/* Header with traffic lights (from your original component) */}
-            <div className="bg-gradient-to-r from-neutral-950 to-neutral-800 px-4 sm:px-6 py-4 flex items-center space-x-2 relative z-20">
-              <div className="ml-4 text-lg text-gray-200 font-medium hidden sm:block">CONTACT ME</div>
+            <div className="flex justify-end mb-2 p-4">
+              <span className={`text-4xl font-bold transition-colors duration-300 ${
+                isHovered ? 'text-green-100' : 'text-gray-500'
+              }`}>
+                04
+              </span>
             </div>
+            <SectionHeading text="CONTACT ME" className="m-0 mb-4 !text-neutral-500 hover:!text-neutral-50 text-4xl md:text-5xl" />
 
             {/* Form Inputs */}
             <form onSubmit={handleSubmit} className="p-4 sm:p-8 relative z-20">

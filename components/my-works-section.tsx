@@ -19,53 +19,57 @@ const MyWorksSection: React.FC = () => {
   const workExperiences: WorkExperience[] = [
     {
       id: 1,
-      title: "Senior Frontend Developer",
-      company: "TechCorp Solutions",
-      location: "San Francisco, CA",
-      duration: "2022 - Present",
+      title: "AI Automations Engineer",
+      company: "propertyvisualizer",
+      location: "Cyprus",
+      duration: "2025 - Present",
       description:
-        "Led the development of responsive web applications using React and Next.js. Collaborated with design teams to implement pixel-perfect UI components and optimized application performance.",
-      technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS", "GraphQL"],
-      link: "https://techcorp.example.com",
-      image: "/modern-tech-dashboard.png",
+        "Automated PM-Workflow using N8N and offic 365 tools via MicoroSoft Graph API",
+      technologies: ["Javascript", "N8N", "Python", "Microsoft GraphAPI", "ClickUp"],
+      link: "https://propertyvisualizer.com",
+      image: "/projects_banner/property_visualizer_main.png",
     },
     {
       id: 2,
-      title: "Full Stack Developer",
-      company: "StartupXYZ",
-      location: "Remote",
-      duration: "2020 - 2022",
+      title: "Full-Stack Developer",
+      company: "Kizush Constructions",
+      location: "Ontario, Canada",
+      duration: "2024 - 2025",
       description:
         "Built and maintained full-stack web applications from concept to deployment. Implemented RESTful APIs and integrated third-party services to enhance user experience.",
-      technologies: ["Vue.js", "Node.js", "Express", "MongoDB", "AWS"],
-      link: "https://startupxyz.example.com",
-      image: "/startup-web-app-interface.png",
+      technologies: ["React.js", "Fastapi", "AWS", "PostgreSQL",],
+      link: "https://kizushconstruction.ca",
+      image: "/projects_banner/kizush_main.png",
     },
     {
       id: 3,
-      title: "Frontend Developer",
-      company: "Digital Agency Pro",
-      location: "New York, NY",
-      duration: "2018 - 2020",
+      title: "Full-Stack Developer",
+      company: "Odomite Rentals",
+      location: "New Wark, NJ",
+      duration: "2021 - 2024",
       description:
         "Developed interactive websites and web applications for various clients. Focused on creating responsive designs and implementing modern JavaScript frameworks.",
-      technologies: ["JavaScript", "React", "SCSS", "Webpack", "jQuery"],
-      link: "https://digitalagencypro.example.com",
-      image: "/creative-agency-website.png",
+      technologies: ["JavaScript", "NextJS", "TailwindCSS", "FireBase", "FireStore","Cloudinary",],
+      link: "https://odomiterentals.com",
+      image: "/projects_banner/odomite_alt.png",
+    },
+    {
+      id: 3,
+      title: "Full-Stack Developer/ Senior Technical Lead",
+      company: "Sucasa.com",
+      location: "Lagos, Nigeria",
+      duration: "2020 - Till Date",
+      description:
+        "As sucasa CTO I was tasked with developing best practices for developing and scaling our platform to manage hundred of thousands of users via our dashboards and our api-offering. I built the platform alongsides a team of 10 including designers and other developers ",
+      technologies: ["JavaScript", "NextJS", "FastAPI", "SuperBase", "Docker"],
+      link: "https://odomiterentals.com",
+      image: "/projects_banner/odomite_alt.png",
     },
   ]
 
   return (
-    <section className="py-16 px-6 bg-background">
+    <section className="py-12 px-6 bg-background">
       <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground mb-4">My Works</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            A showcase of my professional journey as a web developer, featuring the projects and companies I've worked
-            with.
-          </p>
-        </div>
-
         <div className="space-y-8">
           {workExperiences.map((work, index) => (
             <div

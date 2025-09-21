@@ -1,5 +1,6 @@
 import React from 'react';
 import Animated3DWrapper from './animated_3d_wrapper';
+import { SectionHeading } from './section-heading';
 
 export default function AboutMeComponent() {
   return (
@@ -17,10 +18,8 @@ export default function AboutMeComponent() {
             </div>
             <div className="grid grid-cols-12 gap-8 mb-16">
               <div className="col-span-12 md:col-span-5">
-                <h1 className="text-4xl md:text-5xl lg:text-8xl font-semibold leading-none tracking-tight text-white">
-                  A LITTLE<br />
-                  ABOUT ME
-                </h1>
+                <SectionHeading text={"A LITTLE"} className="m-0 pb-0 text-4xl md:text-5xl lg:text-6xl !text-white hover:!text-white" />
+                <SectionHeading text={"ABOUT ME"} className="m-0 pt:0 text-4xl md:text-5xl lg:text-6xl !text-white hover:!text-white" />
               </div>
               <div className="col-span-12 md:col-span-7">
                 <div className="w-full h-64 md:h-80 bg-black rounded-lg overflow-hidden shadow-lg">
