@@ -62,8 +62,8 @@ const MyWorksSection: React.FC = () => {
       description:
         "As sucasa CTO I was tasked with developing best practices for developing and scaling our platform to manage hundred of thousands of users via our dashboards and our api-offering. I built the platform alongsides a team of 10 including designers and other developers ",
       technologies: ["JavaScript", "NextJS", "FastAPI", "SuperBase", "Docker"],
-      link: "https://odomiterentals.com",
-      image: "/projects_banner/odomite_alt.png",
+      link: "https://sucasa.com",
+      image: "/projects_banner/sucasa_main.png",
     },
   ]
 

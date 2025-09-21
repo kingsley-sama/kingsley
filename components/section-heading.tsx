@@ -33,7 +33,7 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({ text, className 
           transition={{ type: "spring" }}
           className="inline-block"
         >
-          {l}
+          {l === " " ? "\u00A0" : l}
         </motion.span>
       ))}
     </motion.span>

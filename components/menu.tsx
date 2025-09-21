@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation"
 import type React from "react"
 import { Briefcase, FileText } from "lucide-react"
 import { usePreloader } from "./preloader-provider"
+import TextScramble from "./scramble_text"
 
 export default function Menu() {
 	const router = useRouter()
@@ -23,7 +24,7 @@ export default function Menu() {
 							<div className="flex items-center justify-center w-4 h-4 md:w-5 md:h-5" ><Square className="text-blue-200 font-600"/></div>
 							<div className="flex items-center justify-center w-4 h-4 md:w-5 md:h-5 " ><X className="font-600 text-green-200"/></div>
 							<div className="flex items-center justify-center w-4 h-4 md:w-5 md:h-5" ><Circle className="text-purple-200"/></div> 
-							<div className="ml-3 text-md sm:text-lg text-gray-200 font-medium  sm:block">Kingsley</div>
+							<TextScramble text="KINGSLEY" />
 						</div>
 						<div className="flex h-12 w-full items-center justify-end gap-6 mx-auto pr-6">
 								  {items.map(({ href, label, Icon }) => {

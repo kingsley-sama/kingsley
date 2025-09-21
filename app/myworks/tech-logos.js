@@ -21,23 +21,19 @@ const techLogos = [
   },
   {
     name: "ClickUp",
-    logo: "https://clickup.com/landing/images/brand/icons/clickup-symbol_color.svg"
+    logo: "https://n8n.io/nodes/clickup.svg"
   },
   {
-    name: "Tailwind CSS",
-    logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/tailwindcss/tailwindcss-plain.svg"
+    name: "Microsoft Graph Security",
+    logo: "https://n8n.io/nodes/microsoft-graph-security.svg"
   },
   {
     name: "n8n",
-    logo: "https://docs.n8n.io/favicon.svg"
+    logo: "https://n8n.io/guidelines/logo-dark.svg"
   },
   {
     name: "AWS",
     logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original-wordmark.svg"
-  },
-  {
-    name: "Microsoft Graph",
-    logo: "https://img.icons8.com/fluency/48/microsoft-graph.png"
   },
   {
     name: "Firebase",
@@ -64,17 +60,34 @@ const techLogos = [
     logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg"
   },
   {
-    name: "OpenAI",
-    logo: "https://n8niostorageaccount.blob.core.windows.net/n8nio-strapi-blobs-prod/assets/66f57a0637fe4700cbc94571_Vector_1_70ecbab421.png"
+    name: "chatGPT",
+    logo: "/OpenAI-black-monoblossom.svg"
   },
   {
     name: "GitHub",
-    logo: "https://img.icons8.com/fluency/48/github.png"
+    logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg"
   },
   {
     name: "Slack",
     logo: "https://n8niostorageaccount.blob.core.windows.net/n8nio-strapi-blobs-prod/assets/66e3d729485addcc28ecfa78_Icon_44e8e36907.svg"
-  }
+  },
+  {
+    name: "GraphQL",
+    logo: "https://n8n.io/nodes/graphql.png" 
+  },
+  {
+    name: "Prisma",
+    logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/prisma/prisma-original.svg"
+  },
+  {
+    name: "Redis",
+    logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/redis/redis-original.svg"
+  },
+  {
+    name: "Kubernetes",
+    logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/kubernetes/kubernetes-plain.svg"
+  },
+  
 ];
 
 export default techLogos;
